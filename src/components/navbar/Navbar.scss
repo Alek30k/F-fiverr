@@ -20,7 +20,17 @@
     }
 
     .links {
-      span {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-weight: 700;
+      button {
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid white;
+        cursor: pointer;
+        background-color: transparent;
       }
     }
   }
