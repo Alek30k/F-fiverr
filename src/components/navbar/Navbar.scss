@@ -6,6 +6,17 @@
   align-items: center;
   color: white;
 
+  &.active {
+    background-color: white;
+    color: black;
+
+    button {
+      background-color: white !important;
+      color: #1dbf73 !important;
+      border: 1px solid #1dbf73 !important;
+    }
+  }
+
   .container {
     width: 1400px;
     display: flex;
@@ -47,10 +58,12 @@
   }
 
   hr {
-    width: calc(100% - 2px);
+    width: 100%;
+    // width: calc(100% - 2px);
     height: 0;
-    border-top: 0.5px solid #ebe9e9;
-    border-bottom: 0.5px solid #ebe9e9;
+    border: 0.5px solid rgb(230, 230, 230);
+    // border-top: 0.5px solid #ebe9e9;
+    // border-bottom: 0.5px solid #ebe9e9;
   }
 
   .menu {
