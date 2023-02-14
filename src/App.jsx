@@ -1,12 +1,14 @@
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/home/Home";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 function App() {
+  const Layout = () => {};
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <div>Hello world!</div>,
+      element: <Home />,
     },
   ]);
 
