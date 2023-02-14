@@ -1,7 +1,9 @@
 .navbar {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   background-color: #013914;
+  align-items: center;
   color: white;
 
   .container {
@@ -42,5 +44,22 @@
         }
       }
     }
+  }
+
+  hr {
+    width: calc(100% - 2px);
+    height: 0;
+    border-top: 0.5px solid #ebe9e9;
+    border-bottom: 0.5px solid #ebe9e9;
+  }
+
+  .menu {
+    width: 1400px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    color: gray;
+    font-weight: 300;
+    font-family: "Montserrat", sans-serif;
   }
 }
