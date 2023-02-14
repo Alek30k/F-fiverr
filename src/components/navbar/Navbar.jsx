@@ -38,9 +38,9 @@ const Navbar = () => {
           <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
-          <span>Become a seller</span>
+          {!currentUser?.isSeller && <span>Become a seller</span>}
           <span>Sign in</span>
-          <button>Join</button>
+          {currentUser && <button>Join</button>}
         </div>
       </div>
       {active && (
