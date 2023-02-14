@@ -40,7 +40,27 @@ const Navbar = () => {
           <span>English</span>
           {!currentUser?.isSeller && <span>Become a seller</span>}
           <span>Sign in</span>
-          {currentUser && <button>Join</button>}
+          {!currentUser && <button>Join</button>}
+          {currentUser && (
+            <div className="user">
+              <img
+                src="https://user-images.githubusercontent.com/101005998/218835132-accead2a-fc7a-42e4-b11a-675246ea282b.png"
+                alt="imgUser not found"
+              />
+              <span>{currentUser?.username}</span>
+              <div className="options">
+                {currentUser?.isSeller && (
+                  <>
+                    <span>Gigs</span>
+                    <span>Add New Gig</span>
+                  </>
+                )}
+                <span>Orders</span>
+                <span>Messages</span>
+                <span>Logout</span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {active && (
