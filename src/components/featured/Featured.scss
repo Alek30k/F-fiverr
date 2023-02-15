@@ -9,5 +9,36 @@
     width: 1400px;
     display: flex;
     align-items: center;
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .search {
+        .searchInput {
+        }
+
+        button {
+        }
+      }
+
+      .popular {
+        span {
+        }
+
+        button {
+        }
+      }
+    }
+
+    .right {
+      img {
+      }
+    }
   }
 }
