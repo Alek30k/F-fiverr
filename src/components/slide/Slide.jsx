@@ -8,7 +8,7 @@ const Slide = ({ slidesToShow, arrowsScroll }) => {
   return (
     <div className="slide">
       <div className="container">
-        <Slider slidesToShow={5} arrowsScroll={5}>
+        <Slider slidesToShow={slidesToShow} arrowsScroll={arrowsScroll}>
           {cards.map((card) => (
             <CatCard item={card} key={card.id} />
           ))}
