@@ -4,8 +4,9 @@
   padding: 100px 0px;
 
   .container {
-    width: 1400px;
+    width: 1372px;
     position: relative;
+    background-color: rgb(180, 108, 15);
   }
 
   .carousel-initialized {
@@ -26,5 +27,8 @@
 
   .carousel-prev {
     left: -25px;
+  }
+  .carousel-next {
+    right: -25px;
   }
 }
