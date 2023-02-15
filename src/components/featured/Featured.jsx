@@ -2,7 +2,16 @@ import React from "react";
 import "./Featured.scss";
 
 const Featured = () => {
-  return <div className="featured">Featured</div>;
+  return (
+    <div className="featured">
+      <div className="container">
+        <div className="left">
+          <h1>Find the perfect freelance servicio for your business</h1>
+        </div>
+        <div className="right"></div>
+      </div>
+    </div>
+  );
 };
 
 export default Featured;
