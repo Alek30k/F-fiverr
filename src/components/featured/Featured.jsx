@@ -1,12 +1,14 @@
 import React from "react";
 import "./Featured.scss";
 
-const Featured = () => {
+function Featured() {
   return (
     <div className="featured">
       <div className="container">
         <div className="left">
-          <h1>Find the perfect freelance servicio for your business</h1>
+          <h1>
+            Find the perfect <span>freelance</span> services for your business
+          </h1>
           <div className="search">
             <div className="searchInput">
               <img src="./img/search.png" alt="" />
@@ -28,6 +30,6 @@ const Featured = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Featured;
