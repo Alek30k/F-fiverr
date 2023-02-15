@@ -9,7 +9,7 @@ const Featured = () => {
           <h1>Find the perfect freelance servicio for your business</h1>
           <div className="search">
             <div className="searchInput">
-              <img src="" alt="" />
+              <img src="./img/search.png" alt="" />
               <input type="text" placeholder='Try "building mobil app"' />
             </div>
             <button>Search</button>
