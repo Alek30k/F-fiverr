@@ -4,14 +4,12 @@ import Slider from "infinite-react-carousel";
 import CatCard from "../catCard/CatCard";
 import { cards } from "../../data";
 
-const Slide = ({ slidesToShow, arrowsScroll }) => {
+const Slide = ({ children, slidesToShow, arrowsScroll }) => {
   return (
     <div className="slide">
       <div className="container">
         <Slider slidesToShow={slidesToShow} arrowsScroll={arrowsScroll}>
-          {cards.map((card) => (
-            <CatCard item={card} key={card.id} />
-          ))}
+          {children}
         </Slider>
       </div>
     </div>
