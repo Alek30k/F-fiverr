@@ -28,7 +28,6 @@ const Home = () => {
               Find high-quality services at every price point. No hourly rates,
               just project-based pricing.
             </p>
-          </div>
             <div className="title">
               <img src="./img/check.png" alt="" />
               The best for every budget
@@ -37,7 +36,14 @@ const Home = () => {
               Find high-quality services at every price point. No hourly rates,
               just project-based pricing.
             </p>
-          </div>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              The best for every budget
+            </div>
+            <p>
+              Find high-quality services at every price point. No hourly rates,
+              just project-based pricing.
+            </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
               The best for every budget
