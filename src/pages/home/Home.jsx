@@ -22,7 +22,30 @@ const Home = () => {
             <h1>A whole world de freelance talent at your fingertips</h1>
             <div className="title">
               <img src="./img/check.png" alt="" />
+              The best for every budget
             </div>
+            <p>
+              Find high-quality services at every price point. No hourly rates,
+              just project-based pricing.
+            </p>
+          </div>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              The best for every budget
+            </div>
+            <p>
+              Find high-quality services at every price point. No hourly rates,
+              just project-based pricing.
+            </p>
+          </div>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              The best for every budget
+            </div>
+            <p>
+              Find high-quality services at every price point. No hourly rates,
+              just project-based pricing.
+            </p>
           </div>
           <div className="item">
             <video src="./img/video.mp4" controls></video>
