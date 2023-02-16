@@ -61,39 +61,15 @@ const Home = () => {
       <div className="features">
         <div className="container">
           <div className="item">
-            <h1>A whole world de freelance talent at your fingertips</h1>
-            <div className="title">
-              <img src="./img/check.png" alt="" />
-              The best for every budget
-            </div>
+            <h1>fiverr bussiness</h1>
+            <h1>A business solution designed for teams</h1>
             <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
+              Upgrade to a curated experience packed with tools and benefits,
+              dedicated a businesses
             </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
-              The best for every budget
             </div>
-            <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
-            </p>
-            <div className="title">
-              <img src="./img/check.png" alt="" />
-              The best for every budget
-            </div>
-            <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
-            </p>
-            <div className="title">
-              <img src="./img/check.png" alt="" />
-              The best for every budget
-            </div>
-            <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
-            </p>
           </div>
           <div className="item">
             <img
