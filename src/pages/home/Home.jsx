@@ -3,8 +3,9 @@ import Featured from "../../components/featured/Featured";
 import Slide from "../../components/slide/Slide";
 import TrustedBy from "../../components/truestedBy/TrustedBy";
 import "./Home.scss";
-import { cards } from "../../data";
+import { cards, projects } from "../../data";
 import CatCard from "../../components/catCard/CatCard";
+import ProjectCard from "../../components/projectCard/PojectCard";
 
 const Home = () => {
   return (
@@ -58,7 +59,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="features">
+      <div className="features dark">
         <div className="container">
           <div className="item">
             <h1>fiverr bussiness</h1>
@@ -69,7 +70,19 @@ const Home = () => {
             </p>
             <div className="title">
               <img src="./img/check.png" alt="" />
+              Connect to freelancers with proven business experience
             </div>
+
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              Get matched with the perfect talent by a customer success manager
+            </div>
+
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+              Manage teamwork and boost productivity with one powerful workspace
+            </div>
+            <button>Explore Liverr Business</button>
           </div>
           <div className="item">
             <img
@@ -79,6 +92,11 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Slide slidesToShow={4} arrowsScroll={4}>
+        {projects.map((card) => (
+          <ProjectCard key={card.id} card={card} />
+        ))}
+      </Slide>
     </div>
   );
 };
