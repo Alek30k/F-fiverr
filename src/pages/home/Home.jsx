@@ -16,6 +16,19 @@ const Home = () => {
           <CatCard key={card.id} card={card} />
         ))}
       </Slide>
+      <div className="features">
+        <div className="container">
+          <div className="item">
+            <h1>A whole world de freelance talent at your fingertips</h1>
+            <div className="title">
+              <img src="./img/check.png" alt="" />
+            </div>
+          </div>
+          <div className="item">
+            <video src="./img/video.mp4" controls></video>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
