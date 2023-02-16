@@ -13,12 +13,27 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+
         h2 {
-          font-size: 16px;
+          font-size: 20px;
           color: #555;
         }
         span {
           font-weight: 300;
+          width: fit-content;
+          font-size: 18px;
+          letter-spacing: 2px;
+          //   background-image: linear-gradient(currentColor, currentColor);
+          background-image: linear-gradient(lightgray, lightgray);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 2px;
+          transition: background-size 0.3s;
+
+          &:hover,
+          &:focus {
+            background-size: 100% 2px;
+          }
         }
       }
     }
