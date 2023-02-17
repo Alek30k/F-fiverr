@@ -31,8 +31,9 @@ const Gigs = () => {
             <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
             {open && (
               <div className="rightMenu">
-                <span>Newest</span>
-                <span>Best Selling</span>
+                <span onClick={() => reSort("createdAt")}>Newest</span>
+                <span onClick={() => reSort("sales")}>Best Selling</span>
+                <span onClick={() => reSort("sales")}>Popular</span>
               </div>
             )}
           </div>
