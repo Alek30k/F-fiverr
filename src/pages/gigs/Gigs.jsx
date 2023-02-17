@@ -19,7 +19,8 @@ const Gigs = () => {
           </div>
           <div className="right">
             <span className="sortBy">Sort by</span>
-            <span className="sortType"></span>
+            <span className="sortType">Best Selling</span>
+            <img src="./img/down.png" alt="" />
           </div>
         </div>
       </div>
