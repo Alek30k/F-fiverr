@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Gigs.scss";
 
 const Gigs = () => {
+  const [sort, setSort] = useState("sales");
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="gigs">
       <div className="container">
@@ -13,14 +16,20 @@ const Gigs = () => {
         <div className="menu">
           <div className="left">
             <span>Budget</span>
-            <input type="number" placeholder="min" />s
+            <input type="number" placeholder="min" />
             <input type="number" placeholder="max" />
             <button>Apply</button>
           </div>
           <div className="right">
             <span className="sortBy">Sort by</span>
             <span className="sortType">Best Selling</span>
-            <img src="./img/down.png" alt="" />
+            <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
+            {open && (
+              <div className="rightMenu">
+                <span>Newest</span>
+                <span>Best Selling</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
