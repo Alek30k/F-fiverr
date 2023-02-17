@@ -5,6 +5,11 @@ const Gigs = () => {
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState(false);
 
+  const reSort = (type) => {
+    setSort(type);
+    setOpen(false);
+  };
+
   return (
     <div className="gigs">
       <div className="container">
