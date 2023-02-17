@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { gigs } from "../../data";
+import GigCard from "../../components/gigCard/GigCard";
 import "./Gigs.scss";
 
 const Gigs = () => {
@@ -42,6 +44,11 @@ const Gigs = () => {
               </div>
             )}
           </div>
+        </div>
+        <div className="cards">
+          {gigs.map((gig) => (
+            <GigCard key={gig.id} item={gig} />
+          ))}
         </div>
       </div>
     </div>
