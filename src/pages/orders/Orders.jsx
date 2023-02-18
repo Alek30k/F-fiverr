@@ -57,6 +57,14 @@ const Orders = () => {
               <img className="message" src="./img/message.png" alt="" />
             </td>
           </tr>
+          <tr>
+            <td>
+              <img
+                className="image"
+                src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+            </td>
         </table>
       </div>
     </div>
