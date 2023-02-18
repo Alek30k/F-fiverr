@@ -9,5 +9,7 @@ const Orders = () => {
     isSeller: true,
   };
 
+  return <div className="orders"></div>;
+};
 
 export default Orders;
