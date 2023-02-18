@@ -65,6 +65,15 @@ const Orders = () => {
                 alt=""
               />
             </td>
+            <td>High quality digital character</td>
+            <td>
+              110.<sup>99</sup>
+            </td>
+            <td>Roland Mendel</td>
+            <td>
+              <img className="message" src="./img/message.png" alt="" />
+            </td>
+          </tr>
         </table>
       </div>
     </div>
