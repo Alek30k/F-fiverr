@@ -48,6 +48,15 @@ const Orders = () => {
                 alt=""
               />
             </td>
+            <td>Ai generated concept art</td>
+            <td>
+              79.<sup>99</sup>
+            </td>
+            <td>Francisco Chang</td>
+            <td>
+              <img className="message" src="./img/message.png" alt="" />
+            </td>
+          </tr>
         </table>
       </div>
     </div>
