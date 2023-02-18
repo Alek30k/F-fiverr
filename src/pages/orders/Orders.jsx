@@ -108,6 +108,23 @@ const Orders = () => {
               <img className="message" src="./img/message.png" alt="" />
             </td>
           </tr>
+          <tr>
+            <td>
+              <img
+                className="image"
+                src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
+                alt=""
+              />
+            </td>
+            <td>Text based ai generated art</td>
+            <td>
+              49.<sup>99</sup>
+            </td>
+            <td>Giovanni Rovelli</td>
+            <td>
+              <img className="message" src="./img/message.png" alt="" />
+            </td>
+          </tr>
         </table>
       </div>
     </div>
