@@ -15,6 +15,15 @@ const Orders = () => {
         <div className="title">
           <h1>Orders</h1>
         </div>
+        <table>
+          <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Price</th>
+            {<th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>}
+            <th>Contact</th>
+          </tr>
+        </table>
       </div>
     </div>
   );
