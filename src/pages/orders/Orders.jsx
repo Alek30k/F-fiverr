@@ -1,8 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Orders.scss";
 
 const Orders = () => {
-  return <div className="orders">Orders</div>;
-};
+  const currentUser = {
+    id: 1,
+    username: "Anna",
+    isSeller: true,
+  };
+
 
 export default Orders;
