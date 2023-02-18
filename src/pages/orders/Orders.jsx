@@ -31,6 +31,15 @@ const Orders = () => {
                 alt=""
               />
             </td>
+            <td>Stunning concept art</td>
+            <td>
+              59.<sup>99</sup>
+            </td>
+            <td>Maria Anders</td>
+            <td>
+              <img className="message" src="./img/message.png" alt="" />
+            </td>
+          </tr>
         </table>
       </div>
     </div>
