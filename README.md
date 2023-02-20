@@ -8,5 +8,6 @@ MySQL CRUD Operations using Node.js and React. CRUD. Create, Read, Update and De
 ![Selección_002](https://user-images.githubusercontent.com/101005998/219974281-2b341eea-f275-4ee6-85e9-f7c840a253bb.png)
 ![Selección_002](https://user-images.githubusercontent.com/101005998/219974305-32bf6b0b-2536-44c4-b321-10fa5078ff09.png)
 ![Selección_002](https://user-images.githubusercontent.com/101005998/219974364-a5155c82-6130-4757-88cb-bcf1d7e99474.png)
-![Selección_002](https://user-images.githubusercontent.com/101005998/219974385-7fef5002-80a9-4d28-9755-eef445c3097c.png)
 ![Selección_002](https://user-images.githubusercontent.com/101005998/219974407-4e2018cd-7fce-4f43-ad6f-b39c5f134c60.png)
+![Selección_002](https://user-images.githubusercontent.com/101005998/219974385-7fef5002-80a9-4d28-9755-eef445c3097c.png)
+
