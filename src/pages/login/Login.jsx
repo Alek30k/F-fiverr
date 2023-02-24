@@ -14,10 +14,10 @@ function Login() {
     e.preventDefault();
     try {
       const res = await newRequest.post("/auth/login", { username, password });
-      //   localStorage.setItem("currentUser", JSON.stringify(res.data));
-      //   navigate("/");
+      localStorage.setItem("currentUser", JSON.stringify(res.data));
+      navigate("/");
     } catch (err) {
-      //   setError(err.response.data);
+      setError(err.response.data);
     }
   };
 
