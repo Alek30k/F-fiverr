@@ -20,13 +20,13 @@ const Navbar = () => {
     };
   }, []);
 
-  // const currentUser = null
+  // const currentUser = {
+  //   id: 1,
+  //   username: "Ale",
+  //   isSeller: true,
+  // };
 
-  const currentUser = {
-    id: 1,
-    username: "Ale",
-    isSeller: true,
-  };
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
