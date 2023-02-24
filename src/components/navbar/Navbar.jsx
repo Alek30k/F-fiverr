@@ -47,7 +47,7 @@ const Navbar = () => {
           {currentUser && (
             <div className="user" onClick={() => setOpen(!open)}>
               <img
-                src="https://user-images.githubusercontent.com/101005998/218835132-accead2a-fc7a-42e4-b11a-675246ea282b.png"
+                src={currentUser.img || "/noavatar.jpeg(!open)"}
                 alt="imgUser not found"
               />
               <span>{currentUser?.username}</span>
