@@ -29,6 +29,7 @@ function Register() {
       return { ...prev, isSeller: e.target.checked };
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
