@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
 
-const Navbar = () => {
+function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();
-  const navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -21,13 +20,9 @@ const Navbar = () => {
     };
   }, []);
 
-  // const currentUser = {
-  //   id: 1,
-  //   username: "Ale",
-  //   isSeller: true,
-  // };
-
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     try {
@@ -43,7 +38,7 @@ const Navbar = () => {
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <div className="logo">
-          <Link to="/" className="link">
+          <Link className="link" to="/">
             <span className="text">fiverr</span>
           </Link>
           <span className="dot">.</span>
@@ -52,19 +47,14 @@ const Navbar = () => {
           <span>Fiverr Business</span>
           <span>Explore</span>
           <span>English</span>
-          {!currentUser?.isSeller && <span>Become a seller</span>}
-          <span>Sign in</span>
-          {!currentUser && <button>Join</button>}
-          {currentUser && (
+          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
-              <img
-                src={currentUser.img || "/img/noavatar.jpg"}
-                alt="imgUser not found"
-              />
+              <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
               {open && (
                 <div className="options">
-                  {currentUser?.isSeller && (
+                  {currentUser.isSeller && (
                     <>
                       <Link className="link" to="/mygigs">
                         Gigs
@@ -86,6 +76,15 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+              <Link className="link" to="/register">
+                <button>Join</button>
+              </Link>
+            </>
           )}
         </div>
       </div>
@@ -126,6 +125,6 @@ const Navbar = () => {
       )}
     </div>
   );
-};
+}
 
 export default Navbar;
