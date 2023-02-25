@@ -34,6 +34,10 @@ function Navbar() {
     }
   };
 
+  const handleModalClick = () => {
+    setActive(false);
+  };
+
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
@@ -53,26 +57,28 @@ function Navbar() {
               <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
               {open && (
-                <div className="options">
-                  {currentUser.isSeller && (
-                    <>
-                      <Link className="link" to="/mygigs">
-                        Gigs
-                      </Link>
-                      <Link className="link" to="/add">
-                        Add New Gig
-                      </Link>
-                    </>
-                  )}
-                  <Link className="link" to="/orders">
-                    Orders
-                  </Link>
-                  <Link className="link" to="/messages">
-                    Messages
-                  </Link>
-                  <Link className="link" onClick={handleLogout}>
-                    Logout
-                  </Link>
+                <div className="containerOptions" onClick={handleModalClick}>
+                  <div className="options">
+                    {currentUser.isSeller && (
+                      <>
+                        <Link className="link" to="/mygigs">
+                          Gigs
+                        </Link>
+                        <Link className="link" to="/add">
+                          Add New Gig
+                        </Link>
+                      </>
+                    )}
+                    <Link className="link" to="/orders">
+                      Orders
+                    </Link>
+                    <Link className="link" to="/messages">
+                      Messages
+                    </Link>
+                    <Link className="link" onClick={handleLogout}>
+                      Logout
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
