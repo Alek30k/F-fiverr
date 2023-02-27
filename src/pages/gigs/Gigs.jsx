@@ -32,6 +32,14 @@ const Gigs = () => {
     setOpen(false);
   };
 
+  useEffect(() => {
+    refetch();
+  }, [sort]);
+
+  const apply = () => {
+    refetch();
+  };
+
   return (
     <div className="gigs">
       <div className="container">
