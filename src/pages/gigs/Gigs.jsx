@@ -1,19 +1,17 @@
-import React, { useRef, useState } from "react";
-import { gigs } from "../../data";
-import GigCard from "../../components/gigCard/GigCard";
+import React, { useEffect, useRef, useState } from "react";
 import "./Gigs.scss";
+import GigCard from "../../components/gigCard/GigCard";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useLocation } from "react-router-dom";
 
-const Gigs = () => {
+function Gigs() {
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState(false);
   const minRef = useRef();
   const maxRef = useRef();
 
   const { search } = useLocation();
-  console.log(search);
 
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["gigs"],
@@ -26,6 +24,8 @@ const Gigs = () => {
           return res.data;
         }),
   });
+
+  console.log(data);
 
   const reSort = (type) => {
     setSort(type);
@@ -53,7 +53,7 @@ const Gigs = () => {
             <span>Budget</span>
             <input ref={minRef} type="number" placeholder="min" />
             <input ref={maxRef} type="number" placeholder="max" />
-            <button>Apply</button>
+            <button onClick={apply}>Apply</button>
           </div>
           <div className="right">
             <span className="sortBy">Sort by</span>
@@ -83,6 +83,6 @@ const Gigs = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Gigs;
