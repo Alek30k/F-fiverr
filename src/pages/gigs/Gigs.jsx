@@ -11,9 +11,12 @@ const Gigs = () => {
   // const minRef = useRef();
   // const maxRef = useRef();
 
-  const { isPending, error, data } = useQuery({
+  const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
-    queryFn: () => newRequest("/gigs"),
+    queryFn: () =>
+      newRequest.get("/gigs").then((res) => {
+        return res.data;
+      }),
   });
 
   const reSort = (type) => {
