@@ -1,51 +1,58 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import newRequest from "../../utils/newRequest";
+import Review from "../review/Review";
 import "./Reviews.scss";
-const Review = ({ review }) => {
+const Reviews = ({ gigId }) => {
+  const queryClient = useQueryClient();
   const { isLoading, error, data } = useQuery({
-    queryKey: [review.userId],
+    queryKey: ["reviews"],
     queryFn: () =>
-      newRequest.get(`/users/${review.userId}`).then((res) => {
+      newRequest.get(`/reviews/${gigId}`).then((res) => {
         return res.data;
       }),
   });
 
+  const mutation = useMutation({
+    mutationFn: (review) => {
+      return newRequest.post("/reviews", review);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["reviews"]);
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const desc = e.target[0].value;
+    const star = e.target[1].value;
+    mutation.mutate({ gigId, desc, star });
+  };
+
   return (
-    <div className="review">
-      {isLoading ? (
-        "loading"
-      ) : error ? (
-        "error"
-      ) : (
-        <div className="user">
-          <img className="pp" src={data.img || "/img/noavatar.jpg"} alt="" />
-          <div className="info">
-            <span>{data.username}</span>
-            <div className="country">
-              <span>{data.country}</span>
-            </div>
-          </div>
-        </div>
-      )}
-      <div className="stars">
-        {Array(review.star)
-          .fill()
-          .map((item, i) => (
-            <img src="/img/star.png" alt="" key={i} />
-          ))}
-        <span>{review.star}</span>
-      </div>
-      <p>{review.desc}</p>
-      <div className="helpful">
-        <span>Helpful?</span>
-        <img src="/img/like.png" alt="" />
-        <span>Yes</span>
-        <img src="/img/dislike.png" alt="" />
-        <span>No</span>
+    <div className="reviews">
+      <h2>Reviews</h2>
+      {isLoading
+        ? "loading"
+        : error
+        ? "Something went wrong!"
+        : data.map((review) => <Review key={review._id} review={review} />)}
+      <div className="add">
+        <h3>Add a review</h3>
+        <form action="" className="addForm" onSubmit={handleSubmit}>
+          <input type="text" placeholder="write your opinion" />
+          <select name="" id="">
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+          <button>Send</button>
+        </form>
       </div>
     </div>
   );
 };
 
-export default Review;
+export default Reviews;
