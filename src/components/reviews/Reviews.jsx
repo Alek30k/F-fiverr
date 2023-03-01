@@ -3,8 +3,10 @@ import React from "react";
 import newRequest from "../../utils/newRequest";
 import Review from "../review/Review";
 import "./Reviews.scss";
+
 const Reviews = ({ gigId }) => {
   const queryClient = useQueryClient();
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews"],
     queryFn: () =>
