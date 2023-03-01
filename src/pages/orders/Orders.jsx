@@ -34,23 +34,23 @@ const Orders = () => {
               {<th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>}
               <th>Contact</th>
             </tr>
-            <tr>
-              <td>
-                <img
-                  className="image"
-                  src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                  alt=""
-                />
-              </td>
-              <td>Stunning concept art</td>
-              <td>
-                59.<sup>99</sup>
-              </td>
-              <td>Maria Anders</td>
-              <td>
-                <img className="message" src="./img/message.png" alt="" />
-              </td>
-            </tr>
+            {data.map((order) => (
+              <tr key={order._id}>
+                <td>
+                  <img className="image" src={order.img} alt="" />
+                </td>
+                <td>{order.title}</td>
+                <td>{order.price}</td>
+                <td>
+                  <img
+                    className="message"
+                    src="./img/message.png"
+                    alt=""
+                    onClick={() => handleContact(order)}
+                  />
+                </td>
+              </tr>
+            ))}
             <tr>
               <td>
                 <img
