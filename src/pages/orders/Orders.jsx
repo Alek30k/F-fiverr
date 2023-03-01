@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Orders.scss";
 
 const Orders = () => {
@@ -8,6 +9,14 @@ const Orders = () => {
     username: "Anna",
     isSeller: true,
   };
+
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["orders"],
+    queryFn: () =>
+      newRequest.get(`/orders`).then((res) => {
+        return res.data;
+      }),
+  });
 
   return (
     <div className="orders">
