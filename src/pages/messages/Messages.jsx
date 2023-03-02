@@ -38,18 +38,20 @@ const Messages = () => {
               <th>Action</th>
             </tr>
 
-            <tr className="active">
-              <td>Charley Sharp</td>
-              <td>
-                <Link to="/message/123" className="link">
-                  {message.substring(0, 100)}...
-                </Link>
-              </td>
-              <td>1 hour ago</td>
-              <td>
-                <button>Mark as Read</button>
-              </td>
-            </tr>
+            {data.map((c) => (
+              <tr className="active">
+                <td>Charley Sharp</td>
+                <td>
+                  <Link to="/message/123" className="link">
+                    {message.substring(0, 100)}...
+                  </Link>
+                </td>
+                <td>1 hour ago</td>
+                <td>
+                  <button>Mark as Read</button>
+                </td>
+              </tr>
+            ))}
           </table>
         </div>
       )}
