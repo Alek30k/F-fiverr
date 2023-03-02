@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./Messages.scss";
 
 const Messages = () => {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["conversations"],
     queryFn: () =>
