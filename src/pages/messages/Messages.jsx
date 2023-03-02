@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Messages.scss";
+import moment from "moment";
 
 const Messages = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
@@ -39,14 +40,21 @@ const Messages = () => {
             </tr>
 
             {data.map((c) => (
-              <tr className="active">
+              <tr
+                className={
+                  ((currentUser.isSeller && !c.readBySeller) ||
+                    (!currentUser.isSeller && !c.readByBuyer)) &&
+                  "active"
+                }
+                key={c.id}
+              >
                 <td>Charley Sharp</td>
                 <td>
                   <Link to="/message/123" className="link">
-                    {message.substring(0, 100)}...
+                    {c?.lastMessage?.substring(0, 100)}...
                   </Link>
                 </td>
-                <td>1 hour ago</td>
+                <td>{moment(c.updatedAt).fromNow()}</td>
                 <td>
                   <button>Mark as Read</button>
                 </td>
