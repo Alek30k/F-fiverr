@@ -1,11 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./Messages.scss";
 import moment from "moment";
 
 const Messages = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const queryClient = useQueryClient();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["conversations"],
@@ -15,10 +18,18 @@ const Messages = () => {
       }),
   });
 
-  const message = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-  maxime cum corporis esse aspernatur laborum dolorum? Animi
-  molestias aliquam, cum nesciunt, aut, ut quam vitae saepe repellat
-  nobis praesentium placeat.`;
+  const mutation = useMutation({
+    mutationFn: (id) => {
+      return newRequest.put(`/conversations/${id}`);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["conversations"]);
+    },
+  });
+
+  const handleRead = (id) => {
+    mutation.mutate(id);
+  };
 
   return (
     <div className="messages">
@@ -38,7 +49,6 @@ const Messages = () => {
               <th>Date</th>
               <th>Action</th>
             </tr>
-
             {data.map((c) => (
               <tr
                 className={
@@ -48,15 +58,20 @@ const Messages = () => {
                 }
                 key={c.id}
               >
-                <td>Charley Sharp</td>
+                <td>{currentUser.isSeller ? c.buyerId : c.sellerId}</td>
                 <td>
-                  <Link to="/message/123" className="link">
+                  <Link to={`/message/${c.id}`} className="link">
                     {c?.lastMessage?.substring(0, 100)}...
                   </Link>
                 </td>
                 <td>{moment(c.updatedAt).fromNow()}</td>
                 <td>
-                  <button>Mark as Read</button>
+                  {((currentUser.isSeller && !c.readBySeller) ||
+                    (!currentUser.isSeller && !c.readByBuyer)) && (
+                    <button onClick={() => handleRead(c.id)}>
+                      Mark as Read
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
