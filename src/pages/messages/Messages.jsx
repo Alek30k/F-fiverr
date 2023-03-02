@@ -1,13 +1,16 @@
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Messages.scss";
 
 const Messages = () => {
-  const currentUser = {
-    id: 1,
-    username: "Anna",
-    isSeller: true,
-  };
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["conversations"],
+    queryFn: () =>
+      newRequest.get(`/conversations`).then((res) => {
+        return res.data;
+      }),
+  });
 
   const message = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
   maxime cum corporis esse aspernatur laborum dolorum? Animi
