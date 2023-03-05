@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
+import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
 import "./Add.scss";
 
 const Add = () => {
+  const [singleFile, setSingleFile] = useState(undefined);
+  const [files, setFiles] = useState([]);
+
+  const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
+
   return (
     <div className="add">
       <div className="container">
