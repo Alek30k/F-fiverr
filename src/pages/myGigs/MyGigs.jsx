@@ -10,6 +10,14 @@ function MyGigs() {
 
   const queryClient = useQueryClient();
 
+  const { isLoading, error, data } = useQuery({
+    queryKey: ["myGigs"],
+    queryFn: () =>
+      newRequest.get(`/gigs?userId=${currentUser.id}`).then((res) => {
+        return res.data;
+      }),
+  });
+
   return (
     <div className="myGigs">
       <div className="container">
