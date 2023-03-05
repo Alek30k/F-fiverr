@@ -56,13 +56,9 @@ function MyGigs() {
               <th>Action</th>
             </tr>
             {data.map((gig) => (
-              <tr>
+              <tr key={gig._id}>
                 <td>
-                  <img
-                    className="image"
-                    src="https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1600"
-                    alt=""
-                  />
+                  <img className="image" src={gig.cover} alt="" />
                 </td>
                 <td>Stunning concept art</td>
                 <td>
