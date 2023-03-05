@@ -1,6 +1,10 @@
 import React, { useReducer, useState } from "react";
-import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
 import "./Add.scss";
+import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
+import upload from "../../utils/upload";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import newRequest from "../../utils/newRequest";
+import { useNavigate } from "react-router-dom";
 
 const Add = () => {
   const [singleFile, setSingleFile] = useState(undefined);
@@ -15,7 +19,6 @@ const Add = () => {
       payload: { name: e.target.name, value: e.target.value },
     });
   };
-
   const handleFeature = (e) => {
     e.preventDefault();
     dispatch({
@@ -43,6 +46,25 @@ const Add = () => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation({
+    mutationFn: (gig) => {
+      return newRequest.post("/gigs", gig);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(["myGigs"]);
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    mutation.mutate(state);
+    // navigate("/mygigs")
+  };
+
   return (
     <div className="add">
       <div className="container">
@@ -63,17 +85,24 @@ const Add = () => {
               <option value="animation">Animation</option>
               <option value="music">Music</option>
             </select>
-            <label htmlFor="">Cover Image</label>
-            <input
-              type="file"
-              onChange={(e) => setSingleFile(e.target.files[0])}
-            />
-            <label htmlFor="">Upload Images</label>
-            <input
-              type="file"
-              multiple
-              onChange={(e) => setFiles(e.target.files)}
-            />
+            <div className="images">
+              <div className="imagesInputs">
+                <label htmlFor="">Cover Image</label>
+                <input
+                  type="file"
+                  onChange={(e) => setSingleFile(e.target.files[0])}
+                />
+                <label htmlFor="">Upload Images</label>
+                <input
+                  type="file"
+                  multiple
+                  onChange={(e) => setFiles(e.target.files)}
+                />
+              </div>
+              <button onClick={handleUpload}>
+                {uploading ? "uploading" : "Upload"}
+              </button>
+            </div>
             <label htmlFor="">Description</label>
             <textarea
               name="desc"
@@ -83,7 +112,7 @@ const Add = () => {
               rows="16"
               onChange={handleChange}
             ></textarea>
-            <button>Create</button>
+            <button onClick={handleSubmit}>Create</button>
           </div>
           <div className="details">
             <label htmlFor="">Service Title</label>
@@ -96,6 +125,7 @@ const Add = () => {
             <label htmlFor="">Short Description</label>
             <textarea
               name="shortDesc"
+              onChange={handleChange}
               id=""
               placeholder="Short description of your service"
               cols="30"
@@ -114,8 +144,22 @@ const Add = () => {
               <input type="text" placeholder="e.g. page design" />
               <button type="submit">add</button>
             </form>
+            <div className="addedFeatures">
+              {state?.features?.map((f) => (
+                <div className="item" key={f}>
+                  <button
+                    onClick={() =>
+                      dispatch({ type: "REMOVE_FEATURE", payload: f })
+                    }
+                  >
+                    {f}
+                    <span>X</span>
+                  </button>
+                </div>
+              ))}
+            </div>
             <label htmlFor="">Price</label>
-            <input type="number" name="price" onChange={handleChange} />
+            <input type="number" onChange={handleChange} name="price" />
           </div>
         </div>
       </div>
