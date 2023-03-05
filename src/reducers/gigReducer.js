@@ -13,4 +13,7 @@ export const INITIAL_STATE = {
   price: 0,
 };
 
-export const gigReducer = (state, action) => {};
+export const gigReducer = (state, action) => {
+  switch (action.type) {
+  }
+};
