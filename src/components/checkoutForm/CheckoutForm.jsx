@@ -45,6 +45,10 @@ const CheckoutForm = () => {
     });
   }, [stripe]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
+
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
       <LinkAuthenticationElement
