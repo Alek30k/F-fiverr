@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./MyGigs.scss";
+import getCurrentUser from "../../utils/getCurrentUser";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+// import newRequest from "../../utils/newRequest";
 
 function MyGigs() {
-  const currentUser = {
-    id: 1,
-    username: "Anna",
-    isSeller: true,
-  };
+  const currentUser = getCurrentUser();
+
+  const queryClient = useQueryClient();
 
   return (
     <div className="myGigs">
