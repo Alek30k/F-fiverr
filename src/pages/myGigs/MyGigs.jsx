@@ -60,11 +60,9 @@ function MyGigs() {
                 <td>
                   <img className="image" src={gig.cover} alt="" />
                 </td>
-                <td>Stunning concept art</td>
-                <td>
-                  59.<sup>99</sup>
-                </td>
-                <td>13</td>
+                <td>{gig.title}</td>
+                <td>{gig.price}</td>
+                <td>{gig.sales}</td>
                 <td>
                   <img
                     className="delete"
