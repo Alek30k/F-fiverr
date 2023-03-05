@@ -31,5 +31,15 @@ export const gigReducer = (state, action) => {
         ...state,
         features: [...state.features, action.payload],
       };
+    case "REMOVE_FEATURE":
+      return {
+        ...state,
+        features: state.features.filter(
+          (feature) => feature !== action.payload
+        ),
+      };
+
+    default:
+      return state;
   }
 };
