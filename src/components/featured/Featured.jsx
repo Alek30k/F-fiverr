@@ -20,9 +20,13 @@ function Featured() {
           <div className="search">
             <div className="searchInput">
               <img src="./img/search.png" alt="" />
-              <input type="text" placeholder='Try "building mobil app"' />
+              <input
+                type="text"
+                placeholder='Try "building mobil app"'
+                onChange={(e) => setInput(e.target.value)}
+              />
             </div>
-            <button>Search</button>
+            <button onClick={handleSubmit}>Search</button>
           </div>
           <div className="popular">
             <span>Popular:</span>
