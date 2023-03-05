@@ -20,5 +20,11 @@ export const gigReducer = (state, action) => {
         ...state,
         [action.payload.name]: action.payload.value,
       };
+    case "ADD_IMAGES":
+      return {
+        ...state,
+        cover: action.payload.cover,
+        images: action.payload.images,
+      };
   }
 };
