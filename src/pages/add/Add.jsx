@@ -25,6 +25,24 @@ const Add = () => {
     e.target[0].value = "";
   };
 
+  const handleUpload = async () => {
+    setUploading(true);
+    try {
+      const cover = await upload(singleFile);
+
+      const images = await Promise.all(
+        [...files].map(async (file) => {
+          const url = await upload(file);
+          return url;
+        })
+      );
+      setUploading(false);
+      dispatch({ type: "ADD_IMAGES", payload: { cover, images } });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="add">
       <div className="container">
@@ -89,7 +107,6 @@ const Add = () => {
               <input type="text" placeholder="e.g. page design" />
               <button type="submit">add</button>
             </form>
-            <input type="text" placeholder="e.g. page design" />
             <label htmlFor="">Price</label>
             <input type="number" name="price" onChange={handleChange} />
           </div>
