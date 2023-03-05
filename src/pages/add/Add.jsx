@@ -16,6 +16,15 @@ const Add = () => {
     });
   };
 
+  const handleFeature = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "ADD_FEATURE",
+      payload: e.target[0].value,
+    });
+    e.target[0].value = "";
+  };
+
   return (
     <div className="add">
       <div className="container">
@@ -78,7 +87,7 @@ const Add = () => {
             <label htmlFor="">Add Features</label>
             <input type="text" placeholder="e.g. page design" />
             <label htmlFor="">Price</label>
-            <input type="number" />
+            <input type="number" name="price" onChange={handleChange} />
           </div>
         </div>
       </div>
