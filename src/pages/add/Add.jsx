@@ -85,6 +85,10 @@ const Add = () => {
               onChange={handleChange}
             />
             <label htmlFor="">Add Features</label>
+            <form action="" className="add" onSubmit={handleFeature}>
+              <input type="text" placeholder="e.g. page design" />
+              <button type="submit">add</button>
+            </form>
             <input type="text" placeholder="e.g. page design" />
             <label htmlFor="">Price</label>
             <input type="number" name="price" onChange={handleChange} />
