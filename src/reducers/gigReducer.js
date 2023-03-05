@@ -12,3 +12,5 @@ export const INITIAL_STATE = {
   features: [],
   price: 0,
 };
+
+export const gigReducer = (state, action) => {};
