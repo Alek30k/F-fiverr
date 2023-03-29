@@ -7,11 +7,9 @@ const Review = ({ review }) => {
   const { isLoading, error, data } = useQuery({
     queryKey: [review.userId],
     queryFn: () =>
-      newRequest
-        .get(`https://fiverr-nlt2.onrender.com/api/users/${review.userId}`)
-        .then((res) => {
-          return res.data;
-        }),
+      newRequest.get(`/users/${review.userId}`).then((res) => {
+        return res.data;
+      }),
   });
 
   return (
